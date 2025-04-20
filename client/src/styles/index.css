@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  --light-bg-color: rgba(65, 63, 84, 0.2);
+  --dark-bg-color: #2F2F2F;
+  --med-purple-color: #AA75FE;
+  --purple-color: #BB76FF;
+  --light-purple-color: rgba(187, 118, 255, .3);
+  --slight-purple-color: rgba(187, 118, 255, 0.25);
+  --profile-bg-color: rgba(87, 87, 87, 0.17);
+  --dark-purple-bg: rgba(87, 87, 87, 0.60);
+  --card-border-color: rgba(255, 255, 255, 0.19);
+}
+
+body {
+  background: var(--dark-bg-color);
+  font-family: 'Pathway Gothic One', sans-serif; 
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: var(--light-bg-color);
+  border-bottom: 5px solid var(--light-purple-color);
+  box-shadow: 0px 6px 4px 0px var(--slight-purple-color);
+}
+
+span {
+}
+
+.glow-ring {
+  box-shadow: 0 0 12px rgba(187, 118, 255, 0.5),
+              0 0 24px rgba(187, 118, 255, 0.2);
+  border: 2px solid rgba(187, 118, 255, 0.4);
+  animation: pulseGlow 3s ease-in-out infinite;
+  background: radial-gradient(circle at center, rgba(187, 118, 255, 0.1), transparent);
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 12px rgba(187, 118, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(187, 118, 255, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(187, 118, 255, 0.3);
+  }
+}
+
+.glow-ring:hover {
+  box-shadow: 0 0 18px rgba(187, 118, 255, 0.6),
+              0 0 36px rgba(187, 118, 255, 0.3);
+}
+
+.flicker-text {
+  animation: flicker 2.5s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.9; text-shadow: 0 0 2px #BB76FF; }
+  50% { opacity: 1; text-shadow: 0 0 8px #BB76FF; }
+  100% { opacity: 0.9; text-shadow: 0 0 2px #BB76FF; }
+}
+
+
+.purple-text {
+  color: var(--purple-color);
+}
+
+.purple-bg {
+  background-color: var(--purple-color);
+}
+
+.purple-bg-dark {
+  background-color: var(--med-purple-color);
+}
+
+.purple-bg-dark:hover {
+  background-color: var(--dark-purple-bg);  
+}
+
+.profile {
+  background-color: var(--profile-bg-color);
+}
+
+.brand {
+  background-color: var(--light-bg-color);
+}
+
+.card {
+  background-color: var(--dark-bg-color);
+}
+
+.card-desc {
+  border-left: 2px solid var(--card-border-color);
+  border-right: 2px solid var(--card-border-color);
+  border-bottom: 2px solid var(--card-border-color);
+}
