@@ -6,9 +6,8 @@ import Rapimage from "../assets/rm-ic.png";
 
 const AboutSec: React.FC = () => {
   return (
-    <div id="about" className="mt-[128px] w-full px-6">
-      <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-10">
-        {/* Text Section */}
+    <div id="about" className="mt-[64px] w-full px-6">
+      <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-16">
         <div className="flex-1 text-white">
           <h2 className="text-[36px] lg:text-[52px] text-center lg:text-left">
             I'm an <span className="purple-text">AI Developer</span>
@@ -24,8 +23,7 @@ const AboutSec: React.FC = () => {
           </p>
         </div>
 
-        {/* Icons Zigzag Section */}
-        <div className="flex-1 flex flex-row<F4><F4> gap-6 justify-center items-center relative">
+        <div className="flex-1 flex flex-row gap-6 justify-center items-center relative">
           <div className="flex w-full justify-start">
             <img className="w-[100px] lg:w-[150px]" src={Pyimage} alt="Python Icon" />
           </div>

@@ -36,16 +36,16 @@ const skillsData = [
 ];
 
 const Skills: React.FC = () => {
-  return (
-    <div id="skills" className="w-full px-4 sm:px-6 md:px-[80px] lg:px-[120px] xl:px-[248px]">
-      <div className="text-white text-center text-[32px] sm:text-[40px] md:text-[52px] mt-[80px] md:mt-[120px]">
+  return (  
+    <div id="skills" className="w-full px-4 sm:px-6 md:px-[80px] lg:px-[120px] xl:px-[340px]">
+      <div className="text-white text-center text-[32px] sm:text-[40px] md:text-[52px] mt-[50px] md:mt-[90px]">
         What Can I <span className="purple-text">Provide?</span>
       </div>
       <div className="text-white opacity-60 mt-3 text-center text-[18px] sm:text-[22px] md:text-[28px] mb-10">
         An overview of the Skillsets
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-6">
         {skillsData.map((skill, index) => (
           <div
             key={index}

@@ -5,7 +5,7 @@ const IntroSec: React.FC = () => {
   return (
     <div
       id="home"
-      className="w-full flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-16 lg:px-[148px] xl:px-[248px] pt-10 md:pt-24 gap-10 md:gap-0"
+      className="w-full flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-16 lg:px-[148px] xl:px-[338px] pt-10 md:pt-24 gap-10 md:gap-0"
     >
       <LeftPane />
       <RightPane />
@@ -32,7 +32,7 @@ const LeftPane: React.FC = () => {
         <a
           href="/cv.pdf"
           download="cv.pdf"
-          className="text-white text-[18px] sm:text-[20px] md:text-[24px] underline underline-offset-4 hover:text-gray-300 transition-colors duration-300"
+          className="text-white pt-2 text-[18px] sm:text-[20px] md:text-[24px] underline underline-offset-4 hover:text-gray-300 transition-colors duration-300"
         >
           View Resume
         </a>
