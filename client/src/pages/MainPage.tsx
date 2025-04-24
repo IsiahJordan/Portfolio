@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/Header.tsx";
+import NavBar from "../components/NavigationBar.tsx";
 import IntroSec from "../components/Intro.tsx";
 import {BrandService, BrandWork} from "../components/BrandDetails.tsx";
 import AboutSec from "../components/About.tsx";
@@ -24,7 +24,7 @@ const Main: React.FC = () => {
   ];
   return(
     <>
-      <Header
+      <NavBar
         lastname="DIMAUNAHAN"
         tabs= {tabs_data}
       />
@@ -32,7 +32,10 @@ const Main: React.FC = () => {
         isModalOpen={isModalOpen}
         setModalOpen={setModalOpen}
       />
-      <IntroSec/>
+      <IntroSec
+        isModalOpen={isModalOpen}
+        setModalOpen={setModalOpen}
+      />
       <BrandService/>
       <AboutSec/>
       <Skills/>

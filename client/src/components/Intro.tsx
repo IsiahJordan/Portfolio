@@ -1,19 +1,27 @@
 import React from "react";
 import profile from "../assets/formal.png";
+import { ContractProps } from "../utilities/types.ts";
 
-const IntroSec: React.FC = () => {
+const IntroSec: React.FC<ContractProps> = ({isModalOpen, setModalOpen}) => { 
   return (
     <div
       id="home"
       className="w-full flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-16 lg:px-[148px] xl:px-[338px] pt-10 md:pt-24 gap-10 md:gap-0"
     >
-      <LeftPane />
+      <LeftPane 
+        isModalOpen={isModalOpen}
+        setModalOpen={setModalOpen}
+      />
       <RightPane />
     </div>
   );
 };
 
-const LeftPane: React.FC = () => {
+const LeftPane: React.FC<ContractProps> = ({isModalOpen, setModalOpen}) => {
+  const handleClick = () => {
+    setModalOpen(!isModalOpen);
+  }
+
   return (
     <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left">
       <div className="text-white text-[24px] sm:text-[28px] md:text-[32px]">
@@ -26,7 +34,7 @@ const LeftPane: React.FC = () => {
         Let’s build the next big thing together.
       </div>
       <div className="flex justify-center md:justify-start gap-4 flex-wrap">
-        <button className="text-black text-[18px] sm:text-[20px] md:text-[24px] bg-white rounded-md px-4 py-2 hover:bg-gray-400 cursor-pointer transition">
+        <button className="text-black text-[18px] sm:text-[20px] md:text-[24px] bg-white rounded-md px-4 py-2 hover:bg-gray-400 cursor-pointer transition" onClick={handleClick}>
           Contact Me
         </button>
         <a
