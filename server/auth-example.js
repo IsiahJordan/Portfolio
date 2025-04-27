@@ -1,4 +1,4 @@
 module.exports = {
-  EMAIL: "example@gmail",
+  EMAIL: "<name>@example.com",
   PASS: "generate code from google account"
 };
