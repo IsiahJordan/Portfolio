@@ -13,4 +13,3 @@ const SpinnerOverlay: React.FC = () => {
 };
 
 export default SpinnerOverlay;
-

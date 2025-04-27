@@ -1,91 +1,87 @@
-import React from "react";
-import { Box, Typography, Stack, IconButton } from "@mui/material";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import React from 'react';
+import { Box, Container, Typography, IconButton, Stack } from '@mui/material';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import FacebookIcon from '@mui/icons-material/Facebook';
 
-const Footer: React.FC = () => {
+function Footer() {
   return (
-    <Box
-      component="footer"
-      className="profile"
-      sx={{
-        color: "white", // text-white
-        fontSize: "clamp(14px, 3vw, 20px)", // Text font size stays the same (dynamic)
-        px: 4,
-        pl: { sm: "220px" },
-        pt: "60px",
-        pb: "40px",
-        mt: "20px",
-        display: "flex", 
-        justifyContent: "space-between", 
-        alignItems: "center", // Vertically center the items
-      }}
-    >
-      <Typography sx={{ mb: 2, mt:2, opacity: "60%"}}>
-        © Isiah Jordan Dimaunahan, 2025 — Built with React and Tailwind.
-      </Typography>
+    <Box sx={{ backgroundColor: '#0f172a', color: '#fff', py: 4 }}>
+      <Container maxWidth="md" sx={{ textAlign: 'center' }}>
+        <Typography
+          variant="h6"
+          gutterBottom
+          sx={{
+            color: '#1ABC9C',
+            textShadow: '0 0 8px #1ABC9C', // Neon glow effect
+          }}
+        >
+          I Know AI. Do You Know AI? Let's Connect.
+        </Typography>
 
-      <Stack
-        direction="row"
-        spacing={1} // This spacing matches the spacing for the text
-        sx={{
-          marginLeft: "auto",
-          paddingRight: "20rem",
-        }}
-      >
-        <IconButton
-          aria-label="Facebook"
-          href="https://facebook.com"
-          target="_blank"
-          fontSize="10000"
+        <Stack direction="row" justifyContent="center" spacing={2} mb={2}>
+          <IconButton
+            component="a"
+            href="https://github.com/NoobAtem"
+            target="_blank"
+            rel="noopener"
+            sx={{
+              color: 'white',
+              '&:hover': {
+                color: '#1ABC9C', // Neon color on hover
+                transform: 'scale(1.1)', // Slight scale effect on hover
+                transition: '0.3s ease-in-out',
+              },
+            }}
+          >
+            <GitHubIcon />
+          </IconButton>
+          <IconButton
+            component="a"
+            href="https://linkedin.com/in/isiah-jordan-dimaunahan-27aba2292"
+            target="_blank"
+            rel="noopener"
+            sx={{
+              color: 'white',
+              '&:hover': {
+                color: '#1ABC9C', // Neon color on hover
+                transform: 'scale(1.1)', // Slight scale effect on hover
+                transition: '0.3s ease-in-out',
+              },
+            }}
+          >
+            <LinkedInIcon />
+          </IconButton>
+          <IconButton
+            component="a"
+            href="https://www.facebook.com/isiah.jordan.2024"
+            sx={{
+              color: 'white',
+              '&:hover': {
+                color: '#1ABC9C', // Neon color on hover
+                transform: 'scale(1.1)', // Slight scale effect on hover
+                transition: '0.3s ease-in-out',
+              },
+            }}
+          >
+            <FacebookIcon />
+          </IconButton>
+        </Stack>
+
+        <Typography
+          variant="body2"
+          color="gray"
           sx={{
-            color: "#a3a3a3",
-            "&:hover": { color: "#8b5cf6" },
+            color: '#B0BEC5',
+            textShadow: '0 0 6px #1ABC9C', // Subtle glow effect on footer text
           }}
         >
-        <FacebookIcon 
-          sx={{
-            fontSize: "3rem", 
-          }} 
-        />
-        </IconButton>
-        <IconButton
-          aria-label="GitHub"
-          href="https://github.com"
-          target="_blank"
-          sx={{
-            color: "#a3a3a3",
-            "&:hover": { color: "#8b5cf6" },
-            fontSize: 100, 
-          }}
-        >
-        <GitHubIcon
-          sx={{
-            fontSize: "3rem", 
-          }}
-        />
-        </IconButton>
-        <IconButton
-          aria-label="LinkedIn"
-          href="https://linkedin.com"
-          target="_blank"
-          sx={{
-            color: "#a3a3a3",
-            "&:hover": { color: "#8b5cf6" },
-            fontSize: "2rem", // Proper icon size
-          }}
-        >
-        <LinkedInIcon 
-          sx={{
-            fontSize: "3.5rem", 
-          }} 
-        />
-        </IconButton>
-      </Stack>
+          © {new Date().getFullYear()} Isiah Jordan Dimaunahan. All rights reserved.
+        </Typography>
+      </Container>
     </Box>
   );
-};
+}
 
 export default Footer;
 

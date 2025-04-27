@@ -1,87 +1,166 @@
-import React, { useState, useRef, useEffect } from "react";
-import CardDescr from "./Card.tsx";
-import Dashimage from "../assets/dashboard.png";
-import Specimage from "../assets/spectrogram.png";
-import Engimage from "../assets/engineer.png";
+import React, { useEffect, useState, useRef } from 'react';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  Chip,
+} from '@mui/material';
+import { motion } from 'framer-motion';
 
-const WorkList: React.FC = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const cardContainerRef = useRef<HTMLDivElement | null>(null);
-  const [cardHeight, setCardHeight] = useState<number>(0);
+const projects = [
+  {
+    title: 'Spectrogram CNN',
+    image: '/assets/spectrogram.png',
+    description:
+      'Trained a multimodal CNN on spectrogram-based audio data for classification tasks. Integrated signal processing and deep learning pipelines.',
+    tech: ['TensorFlow', 'Python', 'Deep Learning'],
+  },
+  {
+    title: 'Power BI Dashboard',
+    image: '/assets/dashboard.png',
+    description:
+      'Developed a sales performance dashboard using Power BI, with cleansed Excel datasets for clear business insights and KPIs.',
+    tech: ['Power BI', 'Excel', 'Data Cleaning'],
+  },
+  {
+    title: 'Engineer ETL Tool',
+    image: '/assets/engineer.png',
+    description:
+      'Built a scraping and ETL pipeline that aggregates data from multiple sources using Spark and schedules workflows with Airflow.',
+    tech: ['Apache Spark', 'Airflow', 'Python', 'Web Scraping'],
+  },
+];
+
+function ProjectsSection() {
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
-    if (cardContainerRef.current) {
-      setCardHeight(cardContainerRef.current.clientHeight);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
   }, []);
 
-  const hoverTexts = [
-    "Excel sales data cleansed and visualized in PowerBI.",
-    "Scraped, analyzed with Spark, and visualized with matplotlib.",
-    "Frog audio data transformed via Mel-Spectrograms for CNN use.",
-  ];
-
-  const images = [Dashimage, Engimage, Specimage];
-
   return (
-    <div
-      id="works"
-      className="w-full mt-12 px-6 sm:px-[80px] md:px-[120px] lg:px-[160px] xl:px-[200px] flex flex-col sm:flex-row gap-10"
+    <Box
+      ref={sectionRef}
+      sx={{
+        backgroundColor: '#121B25', // Dark base
+        py: 8,
+      }}
+      id="work"
     >
-      {/* Card column */}
-      <div
-        ref={cardContainerRef}
-        className="flex flex-col gap-6 flex-1 justify-start"
-      >
-        <div className="text-white text-[21px] underline underline-offset-8 opacity-60 mb-4 text-center sm:text-left">
-          Hover on the Image to Read Description
-        </div>
+      <Container maxWidth="md">
+        <Typography
+          variant="h4"
+          fontWeight="bold"
+          gutterBottom
+          sx={{
+            color: '#ECF0F1',
+            textShadow: '0 0 8px #1ABC9C', // Soft glow effect
+          }}
+        >
+          Projects
+        </Typography>
 
-        <CardDescr
-          title="Data Engineering"
-          descr="This is a project that is all about data pipelines and integrating Apache Airflow to scrape and clean datasets."
-        />
-        <CardDescr
-          title="Machine Learning"
-          descr="A demonstration of the model prowess on solving general problems of the world."
-        />
-        <CardDescr
-          title="Data Analysis"
-          descr="Data cleaning and data visualization using PowerBI to create a comprehensive dashboard."
-        />
-      </div>
+        <Typography
+          variant="body1"
+          paragraph
+          sx={{
+            color: '#B0BEC5', // Soft secondary text
+          }}
+        >
+          A few highlights from what I’ve built — blending AI, data engineering, and visualization to solve real-world problems.
+        </Typography>
 
-      {/* Image column */}
-      <div
-        className="flex flex-col gap-6 flex-1"
-        style={{ height: cardHeight || "auto" }}
-      >
-        {images.map((src, i) => {
-          const isHovered = hoveredIndex === i;
-          return (
-            <div
-              key={i}
-              onMouseEnter={() => setHoveredIndex(i)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              className="relative group overflow-hidden rounded-xl border border-white border-opacity-10 flex-1"
-            >
-              <img
-                src={src}
-                alt={`project-${i}`}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm bg-black/40 px-4">
-                <p className="text-white text-center text-sm leading-relaxed">
-                  {hoverTexts[i]}
-                </p>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+        <Grid container spacing={4}>
+          {projects.map((project, index) => (
+            <Grid item xs={12} md={4} key={index}>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{
+                  opacity: inView ? 1 : 0,
+                  y: inView ? 0 : 50,
+                }}
+                transition={{ duration: 0.7 }}
+              >
+                <Card
+                  sx={{
+                    height: '100%',
+                    backgroundColor: '#1B2735',
+                    color: '#ECF0F1',
+                    boxShadow: '0 4px 20px rgba(26, 188, 156, 0.2)', // Light greenish glow
+                    transition: 'transform 0.3s ease',
+                    '&:hover': {
+                      transform: 'scale(1.03)',
+                      boxShadow: '0 6px 30px rgba(26, 188, 156, 0.4)',
+                    },
+                  }}
+                >
+                  <CardMedia
+                    component="img"
+                    height="200"
+                    image={project.image}
+                    alt={project.title}
+                    sx={{ objectFit: 'cover' }}
+                  />
+                  <CardContent>
+                    <Typography
+                      variant="h6"
+                      fontWeight="bold"
+                      gutterBottom
+                      sx={{ color: '#1ABC9C' }}
+                    >
+                      {project.title}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      paragraph
+                      sx={{ color: '#B0BEC5' }}
+                    >
+                      {project.description}
+                    </Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                      {project.tech.map((tech) => (
+                        <Chip
+                          key={tech}
+                          label={tech}
+                          size="small"
+                          sx={{
+                            backgroundColor: '#16A085',
+                            color: '#ECF0F1',
+                            fontWeight: 'bold',
+                          }}
+                        />
+                      ))}
+                    </Box>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
   );
-};
+}
 
-export default WorkList;
+export default ProjectsSection;
 
