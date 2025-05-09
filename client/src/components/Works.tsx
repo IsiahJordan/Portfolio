@@ -142,13 +142,6 @@ export const ProjectsSection: React.FC<> = () => {
                     },
                   }}
                 >
-                  <CardMedia
-                    component="img"
-                    height="200"
-                    image={project.image}
-                    alt={project.title}
-                    sx={{ objectFit: 'cover' }}
-                  />
                   <CardContent>
                     <Typography
                       variant="h6"
