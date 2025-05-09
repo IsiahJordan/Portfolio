@@ -36,8 +36,7 @@ const SkillsSection: React.FC = () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
-    };
-  }, []);
+    }; }, []);
 
   return (
     <Box
