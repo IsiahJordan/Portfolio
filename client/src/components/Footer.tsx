@@ -4,7 +4,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 
-function Footer() {
+const Footer: React.FC = () => {
   return (
     <Box sx={{ backgroundColor: '#0f172a', color: '#fff', py: 4 }}>
       <Container maxWidth="md" sx={{ textAlign: 'center' }}>
@@ -13,7 +13,7 @@ function Footer() {
           gutterBottom
           sx={{
             color: '#1ABC9C',
-            textShadow: '0 0 8px #1ABC9C', // Neon glow effect
+            textShadow: '0 0 8px #1ABC9C', 
           }}
         >
           I Know AI. Do You Know AI? Let's Connect.
@@ -28,8 +28,8 @@ function Footer() {
             sx={{
               color: 'white',
               '&:hover': {
-                color: '#1ABC9C', // Neon color on hover
-                transform: 'scale(1.1)', // Slight scale effect on hover
+                color: '#1ABC9C', 
+                transform: 'scale(1.1)', 
                 transition: '0.3s ease-in-out',
               },
             }}
@@ -44,8 +44,8 @@ function Footer() {
             sx={{
               color: 'white',
               '&:hover': {
-                color: '#1ABC9C', // Neon color on hover
-                transform: 'scale(1.1)', // Slight scale effect on hover
+                color: '#1ABC9C', 
+                transform: 'scale(1.1)', 
                 transition: '0.3s ease-in-out',
               },
             }}
@@ -58,8 +58,8 @@ function Footer() {
             sx={{
               color: 'white',
               '&:hover': {
-                color: '#1ABC9C', // Neon color on hover
-                transform: 'scale(1.1)', // Slight scale effect on hover
+                color: '#1ABC9C', 
+                transform: 'scale(1.1)', 
                 transition: '0.3s ease-in-out',
               },
             }}
@@ -73,7 +73,7 @@ function Footer() {
           color="gray"
           sx={{
             color: '#B0BEC5',
-            textShadow: '0 0 6px #1ABC9C', // Subtle glow effect on footer text
+            textShadow: '0 0 6px #1ABC9C', 
           }}
         >
           © {new Date().getFullYear()} Isiah Jordan Dimaunahan. All rights reserved.

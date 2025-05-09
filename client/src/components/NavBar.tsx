@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import ContactModal from './Contacts';
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC<> = () => {
   const theme = useTheme();
   const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
   const [isModalOpen, setModalOpen] = useState(false);
